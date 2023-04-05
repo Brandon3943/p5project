@@ -1,1 +1,148 @@
+body {
+    background-image: url("../src/assets/YamiYugi-DULI.webp");
+    background-repeat: no-repeat;
+    background-position: top 10px left 1400px;
+}
 
+.welcome_body {
+    background-image: url("../src/assets/yugioh logo.png")
+}
+
+canvas, .player_parent_container {
+    border: 2px solid black;
+    width: 70%;
+    height: 90%;
+    position: absolute;
+    left: 18%;
+    top: 5%;
+    align-items: center;
+    justify-content: center;
+}
+
+canvas {
+    background-color: tan;
+    opacity: 95%;
+}
+
+.nav_bar {
+    border: 1px solid black;
+    position: relative;
+    display: block;
+    height: 100%;
+    width: 250px;
+}
+
+.card_layout {
+    border: 1px solid black;
+    height: 100px;
+    width: 80px;
+}
+
+
+.player_deck_location {
+    width: 86px;
+    height: 135px;
+    border: 1px solid black;
+    position: absolute;
+    left: 1150px;
+    top: 580px;
+}
+
+.player_graveyard_location {
+    width: 86px;
+    height: 135px;
+    border: 1px solid black;
+    position: absolute;
+    left: 22px;
+    top: 580px;
+}
+
+.player_trap_magic_location1{
+    width: 86px;
+    height: 135px;
+    border: 1px solid black;
+    position: absolute;
+    left: 260px;
+    top: 500px; 
+}
+
+.player_trap_magic_location2{
+    width: 86px;
+    height: 135px;
+    border: 1px solid black;
+    position: absolute;
+    left: 435px;
+    top: 500px; 
+}
+
+.player_trap_magic_location3{
+    width: 86px;
+    height: 135px;
+    border: 1px solid black;
+    position: absolute;
+    left: 610px;  
+    top: 500px;   
+}
+
+.player_trap_magic_location4{
+    width: 86px;
+    height: 135px;
+    border: 1px solid black;
+    position: absolute;
+    left: 782px;
+    top: 500px 
+}
+
+.player_trap_magic_location5{
+    width: 86px;
+    height: 135px;
+    border: 1px solid black;
+    position: absolute;
+    left: 955px;
+    top: 500px; 
+}
+
+.player_monster_location5 {
+    width: 86px;
+    height: 135px;
+    border: 1px solid black;
+    position: absolute;
+    left: 955px;
+    top: 355px; 
+}
+
+.player_monster_location4 {
+    width: 86px;
+    height: 135px;
+    border: 1px solid black;
+    position: absolute;
+    left: 782px;
+    top: 355px; 
+}
+
+.player_monster_location3 {
+    width: 86px;
+    height: 135px;
+    border: 1px solid black;
+    position: absolute;
+    left: 610px;
+    top: 355px;  
+}
+
+.player_monster_location2 {
+    width: 86px;
+    height: 135px;
+    border: 1px solid black;
+    position: absolute;
+    left: 435px;
+    top: 355px;  
+}
+
+.player_monster_location1 {
+    width: 86px;
+    height: 135px;
+    border: 1px solid black;
+    position: absolute;
+    left: 260px;
+    top: 355px;  
+}
