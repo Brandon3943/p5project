@@ -76,6 +76,7 @@ canvas {
     align-items: center;
     justify-content: center;
     text-align: center;
+    font-size: 20px;
 }
 
 .login_parent_container {
@@ -92,11 +93,96 @@ canvas {
     background-image: url("../src/assets/Joey-l.webp");
     background-color: rgb(172, 98, 1);
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: contain;
     text-align: center;
     opacity: 95%;
 
 }
+
+.signup_parent_container {
+    border: 2px solid black;
+    width: 600px;
+    height: 600px;
+    position: absolute;
+    left: 40%;
+    top: 20%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-image: url("../src/assets/TristanTaylor-DULI.webp");
+    background-color: rgb(172, 98, 1);
+    background-repeat: no-repeat;
+    background-size: contain;
+    text-align: right;
+    opacity: 95%;
+}
+
+.deck_editor_parent_container {
+    border: 2px solid black;
+    width: 1550px;
+    height: 830px;
+    position: absolute;
+    left: 15%;
+    top: 3%;
+    background-image: url("../src/assets/YugiMuto-DULI.png");
+    background-color: rgb(172, 98, 1);
+    background-repeat: no-repeat;
+    background-size: 12%;
+    background-position: left 500px;
+    opacity: 95%;
+}
+
+.deck_editor_card_container {
+    position: absolute;
+    left: 188px;
+    width: 1350px;
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    overflow-x: visible; 
+    overflow-y: scroll;   
+}
+
+.card_container button {
+     position: relative;   
+     left: 19%;
+     margin: 5px;
+}
+
+.cards {
+    margin: 5px 5px 0px 5px;
+    transition: 1s;
+}
+ 
+
+.cards:hover {
+    transform: scale(1.5, 1.5);
+}
+
+
+.current_player_info {
+    width: 160px;
+    position: absolute;
+    left: 5px;
+    top: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.current_player_info img {
+    width: 150px;
+    height:150px;
+    border-radius: 50%;;
+}
+
+button {
+    border-radius: 30px;
+}
+
 
 
 

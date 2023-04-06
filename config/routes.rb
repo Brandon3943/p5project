@@ -5,7 +5,10 @@ Rails.application.routes.draw do
   resources :players
   resources :cards, only: [:index, :show]
 
-  get "/test", to: "application#index"
+  post "/login", to: "sessions#create"
+  delete "/logout", to: "sessions#destroy"
+  get "/me", to: "players#show"
+
  
 
   get "*path", to: "fallback#index", constraints: ->(req) { !req.xhr? && req.format.html? }
