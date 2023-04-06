@@ -1,12 +1,51 @@
 body {
-    background-image: url("../src/assets/YamiYugi-DULI.webp");
-    background-repeat: no-repeat;
-    background-position: top 10px left 1400px;
+    background-image: url("https://www.teahub.io/photos/full/229-2290417_background-yu-gi-oh.jpg");
+    background-size: cover;
+    width: 1840px;
+    height: 1000px;
+    overflow:hidden;
 }
 
-.welcome_body {
-    background-image: url("../src/assets/yugioh logo.png")
+.welcome_container {
+    width: 500px;
+    height: 500px;
+    position: absolute;
+    left: 25%;
+    top: 20%;
+    text-align: center;
+    
 }
+
+.welcome_logo {
+    mix-blend-mode: multiply;
+    position: relative;
+    left: 100px;
+    animation: yugioh-logo-pulse infinite 4s linear;
+}
+
+.welcome_logo img {
+    width: 900px;
+    height: 400px;
+    mix-blend-mode: multiply;
+}
+
+.login_logout_buttons {
+    position: relative;
+    top: 60px;
+    left: 280px;
+}
+
+@keyframes yugioh-logo-pulse {
+    0% {
+        transform: scale(1, 1);
+      }
+      50% {
+        transform: scale(1.1, 1.1);
+      }
+      100% {
+        transform: scale(1, 1);
+      }
+  }
 
 canvas, .player_parent_container {
     border: 2px solid black;
@@ -26,11 +65,54 @@ canvas {
 
 .nav_bar {
     border: 1px solid black;
-    position: relative;
+    background-color: rgb(172, 98, 1);
+    opacity: 90%;
+    position: absolute;
     display: block;
     height: 100%;
-    width: 250px;
+    width: 210px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
 }
+
+.login_parent_container {
+    border: 2px solid black;
+    width: 600px;
+    height: 600px;
+    position: absolute;
+    left: 40%;
+    top: 20%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-image: url("../src/assets/Joey-l.webp");
+    background-color: rgb(172, 98, 1);
+    background-repeat: no-repeat;
+    background-size: cover;
+    text-align: center;
+    opacity: 95%;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* below CSS for crd layout */
 
 .card_layout {
     border: 1px solid black;
@@ -45,7 +127,7 @@ canvas {
     border: 1px solid black;
     position: absolute;
     left: 1150px;
-    top: 580px;
+    top: 615px;
 }
 
 .player_graveyard_location {
@@ -54,7 +136,7 @@ canvas {
     border: 1px solid black;
     position: absolute;
     left: 22px;
-    top: 580px;
+    top: 615px;
 }
 
 .player_trap_magic_location1{
@@ -63,7 +145,7 @@ canvas {
     border: 1px solid black;
     position: absolute;
     left: 260px;
-    top: 500px; 
+    top: 535px; 
 }
 
 .player_trap_magic_location2{
@@ -72,7 +154,7 @@ canvas {
     border: 1px solid black;
     position: absolute;
     left: 435px;
-    top: 500px; 
+    top: 535px; 
 }
 
 .player_trap_magic_location3{
@@ -81,7 +163,7 @@ canvas {
     border: 1px solid black;
     position: absolute;
     left: 610px;  
-    top: 500px;   
+    top: 535px;   
 }
 
 .player_trap_magic_location4{
@@ -90,7 +172,7 @@ canvas {
     border: 1px solid black;
     position: absolute;
     left: 782px;
-    top: 500px 
+    top: 535px 
 }
 
 .player_trap_magic_location5{
@@ -99,7 +181,7 @@ canvas {
     border: 1px solid black;
     position: absolute;
     left: 955px;
-    top: 500px; 
+    top: 535px; 
 }
 
 .player_monster_location5 {
@@ -108,7 +190,7 @@ canvas {
     border: 1px solid black;
     position: absolute;
     left: 955px;
-    top: 355px; 
+    top: 380px; 
 }
 
 .player_monster_location4 {
@@ -117,7 +199,7 @@ canvas {
     border: 1px solid black;
     position: absolute;
     left: 782px;
-    top: 355px; 
+    top: 380px; 
 }
 
 .player_monster_location3 {
@@ -126,7 +208,7 @@ canvas {
     border: 1px solid black;
     position: absolute;
     left: 610px;
-    top: 355px;  
+    top: 380px;  
 }
 
 .player_monster_location2 {
@@ -135,7 +217,7 @@ canvas {
     border: 1px solid black;
     position: absolute;
     left: 435px;
-    top: 355px;  
+    top: 380px;  
 }
 
 .player_monster_location1 {
@@ -144,5 +226,5 @@ canvas {
     border: 1px solid black;
     position: absolute;
     left: 260px;
-    top: 355px;  
+    top: 380px;  
 }

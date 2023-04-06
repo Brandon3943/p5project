@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  level: 1
+  type: 
+  desc: MyString
+  atk: 1
+  def: 1
+  image_url: MyString
+
+two:
+  name: MyString
+  level: 1
+  type: 
+  desc: MyString
+  atk: 1
+  def: 1
+  image_url: MyString
