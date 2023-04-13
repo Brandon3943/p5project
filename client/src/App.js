@@ -11,6 +11,7 @@ import { useState, useEffect } from "react";
 function App() {
   const [player, setPlayer] = useState({});
   const [playerDeck, setPlayerDeck] = useState([])
+  const [currentDeck, setCurrentDeck] = useState([]) 
 
   useEffect(() => {
     fetch("/me").then((r) => {
@@ -26,6 +27,8 @@ function App() {
     setPlayer(value)
   }
 
+
+  //handles adding and removing card in the deck editor. add/removes from front and backend
   function handleAddCardToPlayerDeck(playerDeck, data) {
     let formData ={
       player_id: player.id,
@@ -39,13 +42,28 @@ function App() {
       body: JSON.stringify(formData)
     }).then(r => r.json())
       .then(console.log)
-
     setPlayerDeck([...playerDeck, data])
+    handleAdd(data)
+  }
+
+  function handleDelete(id) {
+    setCurrentDeck(currentDeck.filter(card => id !== card.id))
+  }
+
+  function handleAdd(data) {
+    setCurrentDeck([...currentDeck, data])
+  }
+
+  function handleRemoveCardFromPlayerDeck(id) {
+    console.log(player)
+    fetch(`players/${player.id}/decks/${id}`, {method: "DELETE"})
+    .then(console.log)
+    handleDelete(id)
   }
 
   return (
     <div className="App">
-      <NavBar />
+      <NavBar player={player} />
 
       <Switch>
         <Route exact path="/login">
@@ -57,7 +75,7 @@ function App() {
         </Route>
 
         <Route exact path="/deckeditor">
-          <DeckEditor player={player} setPlayerDeck={setPlayerDeck} playerDeck={playerDeck} handleAddCardToPlayerDeck={handleAddCardToPlayerDeck} />
+          <DeckEditor player={player} setPlayerDeck={setPlayerDeck} playerDeck={playerDeck} handleAddCardToPlayerDeck={handleAddCardToPlayerDeck} handleRemoveCardFromPlayerDeck={handleRemoveCardFromPlayerDeck} setCurrentDeck={setCurrentDeck} currentDeck={currentDeck} />
         </Route>
 
         <Route exact path="/game">

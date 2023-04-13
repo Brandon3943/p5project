@@ -3,11 +3,17 @@ Rails.application.routes.draw do
   resources :decks
   resources :games
   resources :players
+
+  resources :players, only: [:show] do
+    resources :decks
+  end
+
   resources :cards, only: [:index, :show]
 
   post "/login", to: "sessions#create"
   delete "/logout", to: "sessions#destroy"
   get "/me", to: "players#show"
+  get "/current_deck", to: "cards#current_deck"
 
  
 

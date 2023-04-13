@@ -1,26 +1,37 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 
-function NavBar() {
+function NavBar({ player }) {
+  const history = useHistory()
+
+  console.log(player)
 
   function handleDelete() {
     fetch("/logout", {
       method: "DELETE",
     })
+    history.push("/")
   }
+
 
   return (
     <div className="nav_bar">
-      <h1>Yu-Gi-Oh</h1>
-      <Link to="/">Go Home</Link>
-      <Link to="/game">Go to Game</Link>
-      <Link to="/login">Login</Link>
+      <h1>yugiohbfb.</h1>
+      {!player.id ? <div>
+      <Link to="/"><button>Go Home</button></Link>
+      <br></br>
+      <Link to="/login"><button>Login</button></Link>
+      <br></br>
       <Link to="/signup">Sign up</Link>
-      <Link to="/deckeditor">Deck Editor</Link>
+      </div> : 
+      <div>
+      <Link to="/game"><button>New Game</button></Link>
       <br></br>
-      <br></br>
-      <br></br>
-      <Link to="/"><p onClick={handleDelete}>Logout</p></Link>
+      <Link to="/deckeditor"><button>Deck Editor</button></Link>
+      <Link to="/"><h2 onClick={handleDelete}>Logout</h2></Link>
+      </div> }
+      
+    
     </div>
   )
 }
