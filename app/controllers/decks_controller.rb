@@ -9,8 +9,13 @@ class DecksController < ApplicationController
         render json: deck, status: :created
     end
 
+    def show
+        render json: Deck.find(session[:player_id]), status: :ok
+    end
+
     def destroy
-        Deck.delete(params[:id])
+        deck = Deck.find_by(player_id: params[:player_id], card_id: params[:id])
+        deck.destroy
         head :no_content
     end
 

@@ -2,9 +2,6 @@ import React from 'react';
 import { useState, useEffect, useRef } from 'react';
 
 function Game() {
-  // const [nullPlayerMonsterFeild, setNullPlayerMonsterFeild] = useState([null, null, null, null, null])
-  // const [nullPlayerTrapMagicFeild, setNullPlayerTrapMagicFeild] = useState([null, null, null, null, null])
-  // const [nullPlayerGraveYard, setNullPlayerGraveYard] = useState(null)
   const [playerDeck, setPlayerDeck] = useState([])
   const canvasRef = useRef()
   let playerDeckLocation = useRef()
@@ -23,6 +20,13 @@ function Game() {
     useEffect(() => {
       drawBoard()
     }, [])
+
+    useEffect(() => {
+      fetch("http://localhost:3000/current_deck")
+      .then(r => r.json())
+      .then(data => setPlayerDeck(data))
+    }, [])
+    
 
     function drawBoard() {
       const canvas = canvasRef.current
@@ -47,15 +51,7 @@ function Game() {
       console.log(value)
     }
 
-    useEffect(() => {
-      fetch("http://localhost:3000/cards")
-      .then(r => r.json())
-      .then(data => console.log(data))
-    }, [])
-
-    // if(playerDeck.data) {
-    //   playerDeck.data.map(img => console.log(img.name))
-    // }
+    
     
   
 
@@ -76,7 +72,7 @@ function Game() {
         <div ref={playerMonsterLocation4} className="player_monster_location4" onClick={() => handleClick("Monster4")}></div>
         <div ref={playerMonsterLocation5} className="player_monster_location5" onClick={() => handleClick("Monster5")}></div>
       </div>
-      <img src="../src/assets/YamiYugi-DULI.webp" alt="Yami Yugi" />
+      {/* <img src="../src/assets/YamiYugi-DULI.webp" alt="Yami Yugi" /> */}
     </div>
   )
 }
