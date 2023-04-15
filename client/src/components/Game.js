@@ -16,6 +16,12 @@ function Game() {
   let playerMonsterLocation3 = useRef()
   let playerMonsterLocation4 = useRef()
   let playerMonsterLocation5 = useRef()
+  let playerHandLocation1 = useRef()
+  let playerHandLocation2 = useRef()
+  let playerHandLocation3 = useRef()
+  let playerHandLocation4 = useRef()
+  let playerHandLocation5 = useRef()
+  let playerHandLocation6 = useRef()
   
     useEffect(() => {
       drawBoard()
@@ -25,6 +31,7 @@ function Game() {
       fetch("http://localhost:3000/current_deck")
       .then(r => r.json())
       .then(data => setPlayerDeck(data))
+      .catch(err => console.log(err))
     }, [])
     
 
@@ -33,7 +40,7 @@ function Game() {
       const context = canvas.getContext('2d')
       let playerDeckLocation = context.strokeRect(265,110,20,25)
       let playerGraveYardLocation = context.strokeRect(5,110,20,25)
-      let playerHandLocation = context.strokeRect(80, 125, 150, 25)
+      let playerHandLocation = context.strokeRect(80, 125, 142, 25)
       let playerTrapMagicCardLocation1 = context.strokeRect(60,95,20,25)
       let playerTrapMagicCardLocation2 = context.strokeRect(100,95,20,25)
       let playerTrapMagicCardLocation3 = context.strokeRect(140,95,20,25)
@@ -71,6 +78,12 @@ function Game() {
         <div ref={playerMonsterLocation3} className="player_monster_location3" onClick={() => handleClick("Monster3")}></div>
         <div ref={playerMonsterLocation4} className="player_monster_location4" onClick={() => handleClick("Monster4")}></div>
         <div ref={playerMonsterLocation5} className="player_monster_location5" onClick={() => handleClick("Monster5")}></div>
+        <div ref={playerHandLocation1} className="player_hand_location1" onClick={() => handleClick("Hand1")}></div>
+        <div ref={playerHandLocation2} className="player_hand_location2" onClick={() => handleClick("Hand2")}></div>
+        <div ref={playerHandLocation3} className="player_hand_location3" onClick={() => handleClick("Hand3")}></div>
+        <div ref={playerHandLocation4} className="player_hand_location4" onClick={() => handleClick("Hand4")}></div>
+        <div ref={playerHandLocation5} className="player_hand_location5" onClick={() => handleClick("Hand5")}></div>
+        <div ref={playerHandLocation6} className="player_hand_location6" onClick={() => handleClick("Hand6")}></div>
       </div>
       {/* <img src="../src/assets/YamiYugi-DULI.webp" alt="Yami Yugi" /> */}
     </div>

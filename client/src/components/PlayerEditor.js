@@ -2,29 +2,26 @@ import React from 'react'
 import { Link, useHistory } from 'react-router-dom'
 import { useState } from 'react'
 
-function Signup({ handleCurrentPlayer }) {
+function PlayerEditor({ player }) {
     const [name, setName] = useState("")
     const [lifePoints, setLifePoints] = useState("")
     const [imageUrl, setImageUrl] = useState("")
     const [catchPhrase, setCatchPhrase] = useState("")
     const [userName, setUserName] = useState("")
-    const [password, setPassword] = useState("")
-    const [passwordConfirmation, setPasswordConfirmation] = useState("")
     const history = useHistory()
 
     function handleSubmit(e) {
       e.preventDefault()
-      if (password === passwordConfirmation) {
       let formData = {
         name: name,
         life_points: lifePoints,
         image_url: imageUrl,
         catch_phares: catchPhrase,
-        username: userName,
-        password: password,
+        username: userName
       }
-      fetch("http://localhost:3000/players", {
-        method: "POST",
+      console.log(formData)
+      fetch(`http://localhost:3000/players/${player.id}`, {
+        method: "PATCH",
         headers: {
             "Content-Type": "application/json"
         },
@@ -32,12 +29,15 @@ function Signup({ handleCurrentPlayer }) {
       })
       .then(r => r.json())
       .then(data => {
-        handleCurrentPlayer(data)
+        console.log(data)
         history.push("/deckeditor")
       })
-     } else {
-        alert("Passwords Do Not Match, try again (:")
-     }
+    }
+
+    function handleDelete() {
+     fetch(`http://localhost:3000/players/${player.id}`, {method: "DELETE"})
+       .then(console.log("deleted"))
+       history.push("/")      
     }
 
     function handleNameUpdate(value) {
@@ -59,18 +59,12 @@ function Signup({ handleCurrentPlayer }) {
         setUserName(value)
     }
 
-    function handlePasswordUpdate(value) {
-        setPassword(value)
-    }
-    
-    function handlePasswordConfirmationUpdate(value) {
-        setPasswordConfirmation(value)
-    }
-  
 
   return (
     <>
-    <div className="signup_parent_container">
+    <div className="edit_parent_container">
+        <img src={player.image_url} style={{width: "130px", borderRadius: "50%"}} alt="player" />
+        <h1>{player.name}</h1>
         <div>
            <form onSubmit={handleSubmit}>
             <label htmlFor="name">Name:</label>
@@ -88,21 +82,18 @@ function Signup({ handleCurrentPlayer }) {
             <label htmlFor="user_name">Username:</label>
             <input type='text' placeholder="ex: Mokuba14" value={userName} onChange={(e) => handleUserNameUpdate(e.target.value)}/>
             <br></br>
-            <label htmlFor="password">password:</label>
-            <input type='password' placeholder="ex: 1234" value={password} onChange={(e) => handlePasswordUpdate(e.target.value)}/>
+            <button type="submit">Update Player Info</button>
             <br></br>
-            <label htmlFor="password_confirmation">password confirmation:</label>
-            <input type='password' placeholder="ex: 1234" value={passwordConfirmation} onChange={(e) => handlePasswordConfirmationUpdate(e.target.value)}/>
             <br></br>
-            <button type="submit">Login</button>
+            <br></br>
            </form>
         </div>
-        <h4>Already have an account?</h4>
-        <Link to="/login">Login here</Link>
+        <h2 style={{color: "red"}} onClick={handleDelete}>DELETE ACCOUNT</h2>
+        <Link to="/deckeditor">Exit Without Save</Link>
     </div>
     
     </>
   )
 }
 
-export default Signup
+export default PlayerEditor

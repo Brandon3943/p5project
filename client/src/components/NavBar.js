@@ -4,8 +4,6 @@ import { Link, useHistory } from 'react-router-dom'
 function NavBar({ player }) {
   const history = useHistory()
 
-  console.log(player)
-
   function handleDelete() {
     fetch("/logout", {
       method: "DELETE",
@@ -28,6 +26,8 @@ function NavBar({ player }) {
       <Link to="/game"><button>New Game</button></Link>
       <br></br>
       <Link to="/deckeditor"><button>Deck Editor</button></Link>
+      <br></br>
+      <Link to="/playereditor"><button>Player Editor</button></Link>
       <Link to="/"><h2 onClick={handleDelete}>Logout</h2></Link>
       </div> }
       

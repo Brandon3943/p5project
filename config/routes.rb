@@ -2,12 +2,12 @@ Rails.application.routes.draw do
   resources :matches
   resources :decks
   resources :games
-  resources :players
 
-  resources :players, only: [:show] do
+  resources :players do
     resources :decks
   end
 
+  
   resources :cards, only: [:index, :show]
 
   post "/login", to: "sessions#create"

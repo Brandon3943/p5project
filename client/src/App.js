@@ -6,6 +6,7 @@ import NavBar from "./components/NavBar";
 import Login from "./components/Login";
 import Signup from "./components/SIgnup";
 import DeckEditor from "./components/DeckEditor";
+import PlayerEditor from "./components/PlayerEditor";
 import { useState, useEffect } from "react";
 
 function App() {
@@ -71,7 +72,11 @@ function App() {
         </Route>
 
         <Route exact path="/signup">
-          <Signup />
+          <Signup handleCurrentPlayer={handleCurrentPlayer} />
+        </Route>
+
+        <Route exact path="/playereditor">
+          <PlayerEditor player={player} />
         </Route>
 
         <Route exact path="/deckeditor">

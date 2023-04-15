@@ -1,5 +1,5 @@
 class CardsController < ApplicationController
-
+skip_before_action :authorized_user
     def index
         render json: Card.all, status: :ok
     end
@@ -9,10 +9,8 @@ class CardsController < ApplicationController
     end
 
     def current_deck
-      if session[:player_id]
           player = Player.find(session[:player_id])
           card = player.cards
           render json: card, status: :ok
-      end
     end
 end

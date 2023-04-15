@@ -122,6 +122,34 @@ canvas {
     opacity: 95%;
 }
 
+.edit_parent_container {
+    border: 2px solid black;
+    width: 600px;
+    height: 600px;
+    position: absolute;
+    left: 40%;
+    top: 20%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-image: url("../src/assets/YamiMarik-DULI.webp");
+    background-color: rgb(172, 98, 1);
+    background-repeat: no-repeat;
+    background-size: contain;
+    text-align: right;
+    opacity: 95%;
+}
+
+.edit_parent_container button {
+    position: relative;
+    right: 25%;
+}
+
+.edit_parent_container h2 {
+    cursor: pointer;
+}
+
 .deck_editor_parent_container {
     border: 2px solid black;
     width: 1550px;
@@ -216,6 +244,12 @@ canvas {
 button {
     border-radius: 30px;
 }
+
+label {
+    color: white;    
+}
+
+
 
 
 
@@ -347,4 +381,58 @@ button {
     position: absolute;
     left: 260px;
     top: 380px;  
+}
+
+.player_hand_location1 {
+    width: 86px;
+    height: 135px;
+    border: 1px solid black;
+    position: absolute;
+    left: 360px;
+    top: 698px;
+}
+
+.player_hand_location2 {
+    width: 86px;
+    height: 135px;
+    border: 1px solid black;
+    position: absolute;
+    left: 460px;
+    top: 698px;
+}
+
+.player_hand_location3 {
+    width: 86px;
+    height: 135px;
+    border: 1px solid black;
+    position: absolute;
+    left: 560px;
+    top: 698px;
+}
+
+.player_hand_location4 {
+    width: 86px;
+    height: 135px;
+    border: 1px solid black;
+    position: absolute;
+    left: 660px;
+    top: 698px;
+}
+
+.player_hand_location5 {
+    width: 86px;
+    height: 135px;
+    border: 1px solid black;
+    position: absolute;
+    left: 760px;
+    top: 698px;
+}
+
+.player_hand_location6 {
+    width: 86px;
+    height: 135px;
+    border: 1px solid black;
+    position: absolute;
+    left: 860px;
+    top: 698px;
 }

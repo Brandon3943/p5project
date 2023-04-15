@@ -1,6 +1,5 @@
 class PlayersController < ApplicationController
-   rescue_from ActiveRecord::RecordInvalid, with: :record_invalid
-   skip_before_action :authorized_user, only: [:create]
+   skip_before_action :authorized_user, only: [:create, :update, :destroy]
 
     def index
         render json: Player.all, status: :ok
@@ -15,17 +14,21 @@ class PlayersController < ApplicationController
         render json: player, status: :created
     end
 
+    def update
+        player = Player.find(params[:id])
+        player.update!(player_params)
+        render json: player, status: :ok
+    end
 
-
-
+    def destroy
+        player = Player.find(params[:id])
+        player.delete
+        head :no_content
+    end
 
 
 
         private
-
-        def record_invalid
-            render json: {errors: error.record.full_messages}, status: :unprocessable_entity
-        end
 
 
         def player_params
