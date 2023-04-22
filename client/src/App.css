@@ -68,10 +68,7 @@ canvas {
 }
 
 .player_parent_container img:hover {
-    transform: scale(2.5, 2.5);
-    position: relative;
-    top: -60px;
-    z-index: 1;
+    transform: scale(1.2, 1.2);
 }
 
 .nav_bar {
@@ -230,7 +227,7 @@ canvas {
  
 
 .cards:hover {
-    transform: scale(1.5, 1.5);
+    transform: scale(1.1, 1.1);
 }
 
 

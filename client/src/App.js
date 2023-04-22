@@ -64,7 +64,7 @@ function App() {
 
   return (
     <div className="App">
-      <NavBar player={player} />
+      <NavBar player={player} handleCurrentPlayer={handleCurrentPlayer} />
 
       <Switch>
         <Route exact path="/login">

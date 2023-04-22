@@ -1,15 +1,16 @@
 import React from 'react'
 import { Link, useHistory } from 'react-router-dom'
 
-function NavBar({ player }) {
+function NavBar({ player, handleCurrentPlayer }) {
   const history = useHistory()
 
   function handleDelete() {
     fetch("/logout", {
       method: "DELETE",
-    })
-    history.push("/")
-  }
+    }).then(() => {
+      handleCurrentPlayer({})
+      history.push("/")
+    })}
 
 
   return (
