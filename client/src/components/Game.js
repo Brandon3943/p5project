@@ -4,50 +4,76 @@ import { DragDropContext, Draggable, Droppable } from 'react-beautiful-dnd';
 import _ from 'lodash';
 import {v4} from 'uuid';
 
-
-const item = {
-  id: v4(),
-  name: "Blue-Eyes White Dragon"
-}
-
-const item2 = {
-  id: v4(),
-  name: "Monster Reborn"
-}
-
-const item3 = {
-  id: v4(),
-  name: "Dark Magician"
-}
-
-
 function Game() {
   const playerDeck = useRef()
   const playerGraveYard = useRef()
+  const [playerFullDeck, setPlayerFullDeck] = useState([])
   const [state, setState] = useState({
     "playerHand": {
       title: "Player_Hand",
-      items: [item]
+      items: []
     },
     "trapMagicField": {
       title: "TM_Cards",
-      items: [item2]
+      items: []
     },
     "monsterField": {
       title: "Monster_Cards",
-      items: [item3]
+      items: []
     }
    })
 
-   function handeDragEnd(destination) {    
-    const itemCopy = {...state[destination.source.droppableId].items[destination.source.index]}
-    setState(prev => {
-      prev = {...prev}
-      prev[destination.source.droppableId].items.splice(destination.source.index, 1)
+   useEffect(() => {
+    fetch("/current_deck")
+    .then(r => r.json())
+    .then(data => setPlayerFullDeck(data))
+    .catch(err => console.log(err))
+  }, [])
 
-      prev[destination.destination.droppableId].items.splice(destination.destination.index, 0, itemCopy)
-      return prev;
-    })    
+    function handleClick() {
+      let index = Math.floor(Math.random() * playerFullDeck.length)
+      setPlayerFullDeck(playerFullDeck.filter(card => playerFullDeck[index].id !== card.id))
+      setState(prev => ({...prev, playerHand: {
+        title: "Player_Hand",
+        items: [...prev.playerHand.items, playerFullDeck[index]]
+      }}))
+    }
+
+  
+
+
+   //drag and drop functionality
+   function handeDragEnd(destination) {  
+    console.log(destination.destination.droppableId) 
+    const itemCopy = {...state[destination.source.droppableId].items[destination.source.index]}
+    console.log(itemCopy)
+    // setState(prev => {
+    //   prev = {...prev}
+    //   prev[destination.source.droppableId].items.splice(destination.source.index, 1)
+
+    //   prev[destination.destination.droppableId].items.splice(destination.destination.index, 0, itemCopy)
+    //   return prev;
+    // })  
+    
+    if(destination.destination.droppableId === 'monsterField' && (itemCopy.card_type !== 'Spell Card' && 'Trap Card')) {      
+      setState(prev => {
+        prev = {...prev}
+        prev[destination.source.droppableId].items.splice(destination.source.index, 1)
+  
+        prev[destination.destination.droppableId].items.splice(destination.destination.index, 0, itemCopy)
+        return prev;
+      })  
+    }
+
+    if(destination.destination.droppableId === 'trapMagicField' && (itemCopy.card_type === 'Spell Card' && 'Trap Card')) {      
+      setState(prev => {
+        prev = {...prev}
+        prev[destination.source.droppableId].items.splice(destination.source.index, 1)
+  
+        prev[destination.destination.droppableId].items.splice(destination.destination.index, 0, itemCopy)
+        return prev;
+      })  
+    }
 
      if(!destination.destination) {
       console.log("not in a droppable area")
@@ -59,6 +85,7 @@ function Game() {
       return
      }
    }
+
   
   
    return (
@@ -67,18 +94,18 @@ function Game() {
       {_.map(state, (data, key) => {
         return (
           <div className={`${data.title} row`}>
-            <h3>{data.title}</h3>
+            <span>{data.title}</span>
             <Droppable droppableId={key}>
               {(provided) => {
                return(
                 <div ref={provided.innerRef} {...provided.droppableProps} className="droppable-row">
                   {data.items.map((elem, index) => {
                     return (
-                     <Draggable key={elem.id} index={index} draggableId={elem.id}>
+                     <Draggable key={elem.id} index={index} draggableId={elem.id.toString()}>
                       {(provided) => {
                         return (
                           <div ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps}>
-                            {elem.name}
+                            <img src={elem.image_url} alt="yugioh card" style={{width: "90px"}} />
                           </div>
                         )
                       }}
@@ -94,7 +121,7 @@ function Game() {
         )
       })}
      </DragDropContext>
-     <div ref={playerDeck} className="player_deck_location"></div>
+     <div ref={playerDeck} className="player_deck_location" onClick={() => handleClick()}></div>
      <div ref={playerGraveYard} className="player_graveyard_location" ></div>
     </div>
    )

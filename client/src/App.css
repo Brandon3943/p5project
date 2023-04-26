@@ -279,40 +279,52 @@ label {
     flex-direction: column-reverse;
     align-items: center;
     position: relative; 
-    margin-left: 0%;;   
-    margin: 1%;
+    margin-left: 0;   
+    margin: 10px;
     border: 1px solid black;
     grid-area: 1 / 2 / 2 / 3;
 }
 
 .AppGame .row {    
     width: 70%;
-    
+    border: 1px solid black;
+    height: 150px;    
 }
 
 .AppGame .Player_Hand {
-    width: 50%;
-    margin: 3% 0%;
+    width: 55%;
+    margin: 3px 0;
+}
+
+.Player_Hand img {
+    padding: 5%;
+    transition: .5s;
+}
+
+.Player_Hand img:hover {
+    transform: scale(1.2, 1.2);
 }
 
 .AppGame .Monster_Cards {
-    margin: 3%;
+    margin: 1%;
 }
 
 .AppGame .TM_Cards {
     margin: 1%;
 }
 
+span {
+    position: absolute;
+}
+
 .droppable-row {
     width: 100%;
-    height: 150%;
-    background-color: grey;    
+    height: 100%;    
     border-radius: 2%;
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: center;
-    position: relative;
+    justify-content: center;    
     bottom: 100%;
     padding: 0%;
 }
@@ -346,188 +358,3 @@ label {
     background-repeat: no-repeat;
     background-size: 90%;
 }
-
-
-
-
-
-
-
-
-
-
-
-/* below CSS for crd layout
-
-.card_layout {
-    border: 1px solid black;
-    height: 100px;
-    width: 80px;
-}
-
-
-.player_deck_location {
-    width: 86px;
-    height: 135px;
-    border: 1px solid black;
-    position: absolute;
-    left: 1150px;
-    top: 615px;
-    background-image: url("https://ms.yugipedia.com//thumb/9/90/Back-RushDuel-JP.png/253px-Back-RushDuel-JP.png");
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-size: 100%;
-}
-
-.player_graveyard_location {
-    width: 86px;
-    height: 135px;
-    border: 1px solid black;
-    position: absolute;
-    left: 22px;
-    top: 615px;
-}
-
-.player_trap_magic_location1{
-    width: 86px;
-    height: 135px;
-    border: 1px solid black;
-    position: absolute;
-    left: 260px;
-    top: 535px; 
-}
-
-.player_trap_magic_location2{
-    width: 86px;
-    height: 135px;
-    border: 1px solid black;
-    position: absolute;
-    left: 435px;
-    top: 535px; 
-}
-
-.player_trap_magic_location3{
-    width: 86px;
-    height: 135px;
-    border: 1px solid black;
-    position: absolute;
-    left: 610px;  
-    top: 535px;   
-}
-
-.player_trap_magic_location4{
-    width: 86px;
-    height: 135px;
-    border: 1px solid black;
-    position: absolute;
-    left: 782px;
-    top: 535px 
-}
-
-.player_trap_magic_location5{
-    width: 86px;
-    height: 135px;
-    border: 1px solid black;
-    position: absolute;
-    left: 955px;
-    top: 535px; 
-}
-
-.player_monster_location5 {
-    width: 86px;
-    height: 135px;
-    border: 1px solid black;
-    position: absolute;
-    left: 955px;
-    top: 380px; 
-}
-
-.player_monster_location4 {
-    width: 86px;
-    height: 135px;
-    border: 1px solid black;
-    position: absolute;
-    left: 782px;
-    top: 380px; 
-}
-
-.player_monster_location3 {
-    width: 86px;
-    height: 135px;
-    border: 1px solid black;
-    position: absolute;
-    left: 610px;
-    top: 380px;  
-}
-
-.player_monster_location2 {
-    width: 86px;
-    height: 135px;
-    border: 1px solid black;
-    position: absolute;
-    left: 435px;
-    top: 380px;  
-}
-
-.player_monster_location1 {
-    width: 86px;
-    height: 135px;
-    border: 1px solid black;
-    position: absolute;
-    left: 260px;
-    top: 380px;  
-}
-
-.player_hand_location1 {
-    width: 86px;
-    height: 135px;
-    border: 1px solid black;
-    position: absolute;
-    left: 360px;
-    top: 698px;
-}
-
-.player_hand_location2 {
-    width: 86px;
-    height: 135px;
-    border: 1px solid black;
-    position: absolute;
-    left: 460px;
-    top: 698px;
-}
-
-.player_hand_location3 {
-    width: 86px;
-    height: 135px;
-    border: 1px solid black;
-    position: absolute;
-    left: 560px;
-    top: 698px;
-}
-
-.player_hand_location4 {
-    width: 86px;
-    height: 135px;
-    border: 1px solid black;
-    position: absolute;
-    left: 660px;
-    top: 698px;
-}
-
-.player_hand_location5 {
-    width: 86px;
-    height: 135px;
-    border: 1px solid black;
-    position: absolute;
-    left: 760px;
-    top: 698px;
-}
-
-.player_hand_location6 {
-    width: 86px;
-    height: 135px;
-    border: 1px solid black;
-    position: absolute;
-    left: 860px;
-    top: 698px;
-} */
