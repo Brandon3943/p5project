@@ -1,8 +1,12 @@
+* {
+    box-sizing: border-box;
+}
+
 body {
     background-image: url("https://www.teahub.io/photos/full/229-2290417_background-yu-gi-oh.jpg");
     background-size: cover;
-    width: 1840px;
-    height: 1000px;
+    width: 100vw;
+    height: 99vh;
     overflow:hidden;
 }
 
@@ -71,25 +75,6 @@ canvas {
     transform: scale(1.2, 1.2);
 }
 
-.nav_bar {
-    border: 1px solid black;
-    background-color: rgb(172, 98, 1);
-    background-image: url("../src/assets/SetoKaiba-DL.webp");
-    background-repeat: no-repeat;
-    background-size: 200%;
-    background-position: right 450px;
-    opacity: 90%;
-    position: absolute;
-    display: block;
-    height: 100%;
-    width: 210px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    
-    text-align: center;
-    font-size: 20px;
-}
 
 .login_parent_container {
     border: 2px solid black;
@@ -258,6 +243,109 @@ label {
 }
 
 
+.App {
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    grid-template-rows: 1fr;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+}
+
+.nav_bar {
+    border: 1px solid black;
+    background-color: rgb(172, 98, 1);
+    background-image: url("../src/assets/SetoKaiba-DL.webp");
+    background-repeat: no-repeat;
+    background-size: 200%;
+    background-position: right 450px;
+    opacity: 90%;
+    display: block;
+    height: 100%;
+    width: 210px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;    
+    text-align: center;
+    font-size: 20px;
+    grid-area: 1 / 1 / 2 / 3;
+}
+
+.AppGame {
+    background-color: rgb(172, 98, 1);
+    opacity: 95%;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    position: relative; 
+    margin-left: 0%;;   
+    margin: 1%;
+    border: 1px solid black;
+    grid-area: 1 / 2 / 2 / 3;
+}
+
+.AppGame .row {    
+    width: 70%;
+    
+}
+
+.AppGame .Player_Hand {
+    width: 50%;
+    margin: 3% 0%;
+}
+
+.AppGame .Monster_Cards {
+    margin: 3%;
+}
+
+.AppGame .TM_Cards {
+    margin: 1%;
+}
+
+.droppable-row {
+    width: 100%;
+    height: 150%;
+    background-color: grey;    
+    border-radius: 2%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    bottom: 100%;
+    padding: 0%;
+}
+
+.items {
+    margin-bottom: 1%;
+    color: white;
+}
+
+.AppGame .player_deck_location {
+    width: 10%;
+    height: 22%;
+    position: absolute;
+    left: 89%;
+    top: 70%;
+    background-image: url("https://ms.yugipedia.com//thumb/9/90/Back-RushDuel-JP.png/253px-Back-RushDuel-JP.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-size: 90%;
+}
+
+.AppGame .player_graveyard_location {
+    width: 10%;
+    height: 22%;
+    
+    position: absolute;
+    left: 2%;
+    top: 70%;
+    background-image: url("https://ms.yugipedia.com//thumb/9/90/Back-RushDuel-JP.png/253px-Back-RushDuel-JP.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-size: 90%;
+}
 
 
 
@@ -269,8 +357,7 @@ label {
 
 
 
-
-/* below CSS for crd layout */
+/* below CSS for crd layout
 
 .card_layout {
     border: 1px solid black;
@@ -443,4 +530,4 @@ label {
     position: absolute;
     left: 860px;
     top: 698px;
-}
+} */
