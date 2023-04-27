@@ -14,6 +14,9 @@ function App() {
   const [playerDeck, setPlayerDeck] = useState([])
   const [currentDeck, setCurrentDeck] = useState([]) 
 
+  console.log(currentDeck)
+  console.log(playerDeck)
+
   useEffect(() => {
     fetch("/me").then((r) => {
       if (r.ok) {
@@ -30,7 +33,7 @@ function App() {
 
 
   //handles adding and removing card in the deck editor. add/removes from front and backend
-  function handleAddCardToPlayerDeck(playerDeck, data) {
+  function handleAddCardToPlayerDeck(data) {
     let formData ={
       player_id: player.id,
       card_id: data.id
@@ -43,7 +46,7 @@ function App() {
       body: JSON.stringify(formData)
     }).then(r => r.json())
       .then(console.log)
-    setPlayerDeck([...playerDeck, data])
+    setPlayerDeck(prev => [data, ...prev])
     handleAdd(data)
   }
 
@@ -52,7 +55,7 @@ function App() {
   }
 
   function handleAdd(data) {
-    setCurrentDeck([...currentDeck, data])
+    setCurrentDeck([data, ...currentDeck])
   }
 
   function handleRemoveCardFromPlayerDeck(id) {
