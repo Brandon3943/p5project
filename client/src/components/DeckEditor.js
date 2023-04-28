@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react'
 import Card from '../cards/Card'
 import CurrentDeck from '../cards/CurrentDeck'
 
-function DeckEditor({ player, setPlayerDeck, playerDeck, handleAddCardToPlayerDeck, handleRemoveCardFromPlayerDeck, setCurrentDeck, currentDeck}) {
+function DeckEditor({ player, handleAddCardToPlayerDeck, handleDelete, setCurrentDeck, currentDeck}) {
     const [deck, setDeck] = useState([])
 
     useEffect(() => {
@@ -36,7 +36,7 @@ function DeckEditor({ player, setPlayerDeck, playerDeck, handleAddCardToPlayerDe
 
     if(deck) {
       renderCards = deck.map(card => {
-          return <Card key={card.id} img={card.image_url} data={card} player={player} setPlayerDeck={setPlayerDeck} playerDeck={playerDeck} handleAddCardToPlayerDeck={handleAddCardToPlayerDeck} handleRemoveCardFromPlayerDeck={handleRemoveCardFromPlayerDeck} />
+          return <Card key={card.id} img={card.image_url} data={card} player={player} handleAddCardToPlayerDeck={handleAddCardToPlayerDeck} handleDelete={handleDelete} />
       })
     }    
 

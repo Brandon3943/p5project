@@ -39,21 +39,18 @@ function Game() {
       }}))
     }
 
-  
+    console.log()
+
+    if(state.playerHand.items.length > 6) {
+       
+    }
 
 
    //drag and drop functionality
    function handeDragEnd(destination) {  
     console.log(destination.destination.droppableId) 
     const itemCopy = {...state[destination.source.droppableId].items[destination.source.index]}
-    console.log(itemCopy)
-    // setState(prev => {
-    //   prev = {...prev}
-    //   prev[destination.source.droppableId].items.splice(destination.source.index, 1)
-
-    //   prev[destination.destination.droppableId].items.splice(destination.destination.index, 0, itemCopy)
-    //   return prev;
-    // })  
+    console.log(itemCopy) 
     
     if(destination.destination.droppableId === 'monsterField' && (itemCopy.card_type !== 'Spell Card' && 'Trap Card')) {      
       setState(prev => {

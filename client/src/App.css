@@ -91,9 +91,13 @@ canvas {
     background-color: rgb(172, 98, 1);
     background-repeat: no-repeat;
     background-size: contain;
+    background-position-x: 175px;
     text-align: center;
     opacity: 95%;
+}
 
+a {
+    color: white;
 }
 
 .signup_parent_container {
@@ -111,6 +115,7 @@ canvas {
     background-color: rgb(172, 98, 1);
     background-repeat: no-repeat;
     background-size: contain;
+    background-position-x: 350px;
     text-align: right;
     opacity: 95%;
 }
@@ -130,6 +135,7 @@ canvas {
     background-color: rgb(172, 98, 1);
     background-repeat: no-repeat;
     background-size: contain;
+    background-position-x: 250px;
     text-align: right;
     opacity: 95%;
 }
